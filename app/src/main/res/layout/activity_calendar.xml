@@ -9,11 +9,84 @@ android:paddingLeft="@dimen/activity_horizontal_margin"
 android:paddingRight="@dimen/activity_horizontal_margin"
 android:paddingTop="@dimen/activity_vertical_margin"
 tools:context="com.example.domik.remem.MainActivity"
-android:background="@drawable/pic">
+android:background="#ffffff">
 
-    <CalendarView android:id="@+id/calendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1"
+        android:layout_weight="1"
+        android:background="#FFFFFF">
+
+        <CalendarView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/calendarView"
+            android:showWeekNumber="true"
+            android:background="#ffffff"
+            android:visibility="visible"
+            android:clickable="true"
+            android:adjustViewBounds="true"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/calendarView"
+            android:id="@+id/addEventButton"
+            android:src="@drawable/add"
+            android:layout_gravity="right"
+            android:background="#ffffff"
+            android:visibility="visible"
+            android:baselineAlignBottom="false"
+            android:backgroundTintMode="add"
+            android:onClick="onAddEventClicked"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/Listview"
+            android:layout_below="@+id/calendarView" >
+        </ListView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="70dp"
+            android:background="#3385ff">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:id="@+id/size"
+                android:src="@drawable/font_size"
+                android:background="#3385ff"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:layout_width="122dp"
+                android:layout_height="match_parent"
+                android:id="@+id/add"
+                android:background="#3385ff"
+                android:src="@drawable/ic_plus"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/account"
+                android:background="#3385ff"
+                android:src="@drawable/account"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="right"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

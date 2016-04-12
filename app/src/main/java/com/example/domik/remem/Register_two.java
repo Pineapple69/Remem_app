@@ -22,6 +22,8 @@ public class Register_two extends Activity {
         editText2 = (EditText) findViewById(R.id.editText2);
         editText3 = (EditText) findViewById(R.id.editText3);
         buttonNext = (Button) findViewById(R.id.buttonNext);
+
+
         buttonNext.setOnClickListener(new View.OnClickListener()
 
     {
@@ -34,7 +36,7 @@ public class Register_two extends Activity {
             AlertDialog.Builder builder = new AlertDialog.Builder(Register_two.this);
             builder.setMessage("Fill all blank!");
             builder.setTitle("WARNING");
-            builder.setIcon(R.drawable.logo);
+            builder.setIcon(R.drawable.logo1);
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                 }
@@ -42,7 +44,7 @@ public class Register_two extends Activity {
             AlertDialog dialog = builder.create();
             dialog.show();
         } else
-            startActivity(new Intent(Register_two.this, Calendar.class));
+            startActivity(new Intent(Register_two.this, Timetable.class));
     }
     }
 
