@@ -43,7 +43,7 @@ android:background="#ffffff">
             android:onClick="onAddEventClicked"/>
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="210dp"
             android:clickable="true"
             android:focusable="true"
             android:id="@+id/Listview"

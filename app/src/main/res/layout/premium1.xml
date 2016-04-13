@@ -32,14 +32,14 @@
     android:id="@+id/radioGroup"
     android:orientation="vertical"
     android:layout_below="@+id/textView2"
-    android:layout_alignParentStart="true">
+    android:layout_alignParentStart="true"
+    android:layout_marginTop="20dp">
 
     <RadioButton
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:buttonTint="#0770f0"
         android:layout_height="wrap_content"
         android:text="Man"
-        android:layout_marginTop="20dp"
         android:textSize="25sp"
         android:id="@+id/radioButton1"
         android:layout_below="@+id/textView2"
@@ -49,11 +49,11 @@
         android:textColorHighlight="#0770f0"
         android:textColorHint="#0770f0"
         android:textColorLink="#0770f0"
-        android:layout_weight="1.10"
-        android:onClick="eventClick" />
+        android:onClick="eventClick"
+        android:layout_weight="1" />
 
     <RadioButton
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:buttonTint="#f94b4b"
         android:text="Woman"
@@ -63,8 +63,8 @@
         android:layout_toEndOf="@+id/radioButton"
         android:checked="false"
         android:textColor="#f94b4b"
-        android:layout_gravity="center_horizontal"
-        android:onClick="eventClick" />
+        android:onClick="eventClick"
+        android:layout_weight="1" />
 
 </RadioGroup>
 
