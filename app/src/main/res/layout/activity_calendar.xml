@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
@@ -40,7 +40,7 @@ android:background="#ffffff">
             android:visibility="visible"
             android:baselineAlignBottom="false"
             android:backgroundTintMode="add"
-            android:onClick="onAddEventClicked"/>
+            android:onClick="addEvent"/>
         <ListView
             android:layout_width="match_parent"
             android:layout_height="210dp"
@@ -88,4 +88,4 @@ android:background="#ffffff">
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
