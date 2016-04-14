@@ -33,7 +33,7 @@ public class Register_one extends Activity{
                     AlertDialog.Builder builder = new AlertDialog.Builder(Register_one.this);
                     builder.setMessage("Fill all blank!");
                     builder.setTitle("WARNING!");
-                    builder.setIcon(R.drawable.logo);
+                    builder.setIcon(R.drawable.logo1);
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             // User clicked OK button
@@ -46,7 +46,7 @@ public class Register_one extends Activity{
                     AlertDialog.Builder builder = new AlertDialog.Builder(Register_one.this);
                     builder.setMessage("Not same password!!");
                     builder.setTitle("WARNING!");
-                    builder.setIcon(R.drawable.logo);
+                    builder.setIcon(R.drawable.logo1);
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             // User clicked OK button
