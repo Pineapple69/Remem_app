@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.domik.remem.MainActivity"
-    android:background="@drawable/pic">
+    android:background="@drawable/pic2">
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -35,7 +35,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Create an account on"
                 android:id="@+id/textView"
-                android:textSize="35dp"
+                android:textSize="30dp"
                 android:paddingStart="20dp"
                 android:layout_marginTop="40dp"
                 android:textColor="#ffffff" />
@@ -43,12 +43,10 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:id="@+id/imageView2"
             android:src="@drawable/logo1"
-            android:contentDescription="@string/logo"
-            android:layout_weight="0.11"
-            android:layout_marginTop="30dp" />
+            android:contentDescription="@string/logo" />
 
         <EditText
             android:layout_width="fill_parent"
@@ -61,7 +59,7 @@
             android:hint="@string/email"
             android:paddingStart="20dp"
             android:textSize="25sp"
-            android:layout_marginTop="70dp"
+
             android:singleLine="true" />
 
         <EditText

@@ -13,8 +13,9 @@ import android.provider.CalendarContract.Events;
 import android.widget.ImageButton;
 import android.widget.CalendarView;
 import android.widget.ListView;
+import android.app.Activity;
 
-public class Timetable extends ActionBarActivity {
+public class Timetable extends Activity {
     CalendarView calendarView;
     ImageButton addEventButton, size, add, account;
     ListView ListView;
