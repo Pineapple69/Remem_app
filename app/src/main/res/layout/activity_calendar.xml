@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
@@ -11,81 +11,88 @@ android:paddingTop="@dimen/activity_vertical_margin"
 tools:context="com.example.domik.remem.MainActivity"
 android:background="#ffffff">
 
-    <LinearLayout
-        android:orientation="vertical"
+
+    <RelativeLayout
+        android:id="@+id/header"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:weightSum="1"
-        android:layout_weight="1"
-        android:background="#FFFFFF">
+        android:layout_height="wrap_content"
+        android:background="@drawable/calendar_top" >
 
-        <CalendarView
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:id="@+id/calendarView"
-            android:showWeekNumber="true"
-            android:background="#ffffff"
-            android:visibility="visible"
-            android:clickable="true"
-            android:adjustViewBounds="true"/>
+        <RelativeLayout
+            android:id="@+id/previous"
+            android:layout_width="40dip"
+            android:layout_height="30dip"
+            android:layout_alignParentLeft="true" >
 
-        <ImageButton
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/arrow_left" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/calendarView"
-            android:id="@+id/addEventButton"
-            android:src="@drawable/add"
-            android:layout_gravity="right"
-            android:background="#ffffff"
-            android:visibility="visible"
-            android:baselineAlignBottom="false"
-            android:backgroundTintMode="add"
-            android:onClick="addEvent"/>
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/Listview"
-            android:layout_below="@+id/calendarView" >
-        </ListView>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dip"
+            android:textColor="#000000"
+            android:textSize="18dip"
+            android:textStyle="bold" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:background="#3385ff">
+        <RelativeLayout
+            android:id="@+id/next"
+            android:layout_width="40dip"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true" >
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:id="@+id/size"
-                android:src="@drawable/font_size"
-                android:background="#3385ff"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/arrow_right" />
+        </RelativeLayout>
+    </RelativeLayout>
 
-            <ImageButton
-                android:layout_width="122dp"
-                android:layout_height="match_parent"
-                android:id="@+id/add"
-                android:background="#3385ff"
-                android:src="@drawable/ic_plus"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1" />
+    <GridView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/gridview"
+        android:layout_below="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="7"
+        android:stretchMode="columnWidth"
+        android:clickable="true"
+        android:focusableInTouchMode="false" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/account"
-                android:background="#3385ff"
-                android:src="@drawable/account"
-                android:layout_marginRight="20dp"
-                android:layout_gravity="right"
-                android:layout_weight="1" />
-
-        </LinearLayout>
+    <LinearLayout
+        android:id="@+id/text"
+        android:layout_below="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     </LinearLayout>
 
-</ScrollView>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addEventButton"
+        android:src="@drawable/add"
+        android:layout_gravity="right"
+        android:background="#ffffff"
+        android:visibility="visible"
+        android:baselineAlignBottom="false"
+        android:backgroundTintMode="add"
+        android:onClick="addEvent"
+        android:layout_alignEnd="@+id/text"
+        android:layout_marginEnd="127dp"
+        android:layout_below="@+id/text"
+        android:clickable="true" />
+
+</RelativeLayout>

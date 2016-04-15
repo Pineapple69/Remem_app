@@ -1,34 +1,36 @@
 package com.example.domik.remem;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
-
-//import android.app.Activity;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.provider.CalendarContract;
-import android.support.v7.app.ActionBarActivity;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.provider.CalendarContract.Events;
 import android.widget.ImageButton;
 import android.widget.CalendarView;
 import android.widget.ListView;
+import android.widget.TextView;
 
-public class Timetable extends ActionBarActivity {
+
+public class Timetable extends Activity {
     CalendarView calendarView;
     ImageButton addEventButton, size, add, account;
-    ListView ListView;
+    ListView Listview;
+    TextView event_titleTextView, event_descriptionTextView;
+    Events events;
 
 
     @Override
-    protected void onCreate (Bundle savedInstancestate){
+    protected void onCreate (Bundle savedInstancestate) {
         super.onCreate(savedInstancestate);
         setContentView(R.layout.activity_calendar);
-        calendarView = (CalendarView) findViewById(R.id.calendarView);
-        size = (ImageButton) findViewById(R.id.size);
-        add = (ImageButton) findViewById(R.id.add);
-        account = (ImageButton) findViewById(R.id.account);
-        ListView = (ListView) findViewById(R.id.Listview);
+
 
         account.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,10 +39,10 @@ public class Timetable extends ActionBarActivity {
             }
 
         });
+
     }
 
-
-    public void addEvent (View view) {
+    /*public void addEvent (View view) {
         Intent intent = new Intent(Intent.ACTION_INSERT);
         intent.setType("vnd.android.cursor.item/event");
 
@@ -62,5 +64,41 @@ public class Timetable extends ActionBarActivity {
 
         startActivity(intent);
 
+    }*/
+
+    public static ArrayList<String> nameOfEvent = new ArrayList<String>();
+    public static ArrayList<String> startDates = new ArrayList<String>();
+    public static ArrayList<String> endDates = new ArrayList<String>();
+    public static ArrayList<String> descriptions = new ArrayList<String>();
+
+    public static ArrayList<String> readCalendarEvent (Context context) {
+        Cursor cursor = context.getContentResolver()
+                .query(Uri.parse("content://com.android.calendar/events"),
+                        new String[]{"calendar_id", "title", "description", "dtstart", "dtend", "eventLocation"},null,null,null);
+        cursor.moveToFirst();
+        String CNames[] = new String[cursor.getCount()];
+
+
+        nameOfEvent.clear();
+        startDates.clear();
+        endDates.clear();
+        descriptions.clear();
+        for (int i = 0; i< CNames.length; i++) {
+
+            nameOfEvent.add(cursor.getString(1));
+            startDates.add(getDate(Long.parseLong(cursor.getString(3).trim())));
+            endDates.add(getDate(Long.parseLong(cursor.getString(4).trim())));
+            descriptions.add(cursor.getString(2));
+            CNames[i] = cursor.getString(1);
+            cursor.moveToNext();
+        }
+        return nameOfEvent;
+    }
+
+    public static String getDate(long milliSeconds){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliSeconds);
+        return formatter.format(calendar.getTime());
     }
 }
