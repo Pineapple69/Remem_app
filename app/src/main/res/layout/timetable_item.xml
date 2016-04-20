@@ -6,11 +6,16 @@
     android:gravity="center"
     android:padding="2dip">
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/addEventButton">
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"/>
+</ScrollView>
 
     <ImageView
         android:id="@+id/date_icon"

@@ -46,13 +46,13 @@ public class TimetableAdapter extends BaseAdapter {
 
     public TimetableAdapter(Context c, GregorianCalendar monthCalendar) {
         TimetableAdapter.dayString = new ArrayList<String>();
-        Locale.setDefault(Locale.US);
+        Locale.setDefault(Locale.ENGLISH);
         month = monthCalendar;
         selectedDate = (GregorianCalendar) monthCalendar.clone();
         mContext = c;
         month.set(GregorianCalendar.DAY_OF_MONTH, 1);
         this.items = new ArrayList<String>();
-        df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         curentDateString = df.format(selectedDate.getTime());
         refreshDays();
     }
@@ -67,10 +67,12 @@ public class TimetableAdapter extends BaseAdapter {
     }
 
     public int getCount() {
+
         return dayString.size();
     }
 
     public Object getItem(int position) {
+
         return dayString.get(position);
     }
 
@@ -91,7 +93,7 @@ public class TimetableAdapter extends BaseAdapter {
         dayView = (TextView) v.findViewById(R.id.date);
         // separates daystring into parts.
         String[] separatedTime = dayString.get(position).split("-");
-        // taking last part of date. ie; 2 from 2012-12-02
+        // taking last part of date. ie;
         String gridvalue = separatedTime[2].replaceFirst("^0*", "");
         // checking whether the day is in current month or not.
         if ((Integer.parseInt(gridvalue) > 1) && (position < firstDay)) {
@@ -105,7 +107,7 @@ public class TimetableAdapter extends BaseAdapter {
             dayView.setFocusable(false);
         } else {
             // setting curent month's days in blue color.
-            dayView.setTextColor(Color.BLUE);
+            dayView.setTextColor(Color.BLACK);
         }
 
         if (dayString.get(position).equals(curentDateString)) {
@@ -127,13 +129,15 @@ public class TimetableAdapter extends BaseAdapter {
             monthStr = "0" + monthStr;
         }
 
-        // show icon if date is not empty and it exists in the items array
-        ImageView iw = (ImageView) v.findViewById(R.id.date_icon);
-        if (date.length() > 0 && items != null && items.contains(date)) {
+         //how icon if date is not empty and it exists in the items array
+         ImageView iw = (ImageView) v.findViewById(R.id.date_icon);
+         if (date.length() > 0 && items != null && items.contains(date)) {
             iw.setVisibility(View.VISIBLE);
-        } else {
+         } else {
             iw.setVisibility(View.INVISIBLE);
         }
+
+
         return v;
     }
 
@@ -147,24 +151,30 @@ public class TimetableAdapter extends BaseAdapter {
     }
 
     public void refreshDays() {
+
         // clear items
         items.clear();
         dayString.clear();
-        Locale.setDefault(Locale.US);
+        Locale.setDefault(Locale.ENGLISH);
         pmonth = (GregorianCalendar) month.clone();
+
         // month start day. ie; sun, mon, etc
         firstDay = month.get(GregorianCalendar.DAY_OF_WEEK);
+
         // finding number of weeks in current month.
         maxWeeknumber = month.getActualMaximum(GregorianCalendar.WEEK_OF_MONTH);
+
         // allocating maximum row number for the gridview.
         mnthlength = maxWeeknumber * 7;
         maxP = getMaxP(); // previous month maximum day 31,30....
         calMaxP = maxP - (firstDay - 1);// calendar offday starting 24,25 ...
+
         /**
          * Calendar instance for getting a complete gridview including the three
          * month's (previous,current,next) dates.
          */
         pmonthmaxset = (GregorianCalendar) pmonth.clone();
+
         /**
          * setting the start date as previous month's required date.
          */
@@ -174,7 +184,6 @@ public class TimetableAdapter extends BaseAdapter {
          * filling calendar gridview.
          */
         for (int n = 0; n < mnthlength; n++) {
-
             itemvalue = df.format(pmonthmaxset.getTime());
             pmonthmaxset.add(GregorianCalendar.DATE, 1);
             dayString.add(itemvalue);

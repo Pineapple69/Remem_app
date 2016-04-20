@@ -76,7 +76,6 @@ android:background="#ffffff">
         android:layout_marginRight="5dp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
     </LinearLayout>
 
     <ImageButton

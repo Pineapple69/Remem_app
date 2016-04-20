@@ -1,13 +1,19 @@
 package com.example.domik.remem;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
@@ -16,11 +22,13 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
+import com.example.domik.remem.Timetable;
 
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
@@ -35,6 +43,8 @@ public class TimetableView extends Activity {
     public TimetableAdapter adapter;// adapter instance
     public Handler handler;// for grabbing some event values for showing the dot marker.
     public   ArrayList<String> items; // container to store calendar items which needs showing the event marker
+
+
              ArrayList<String> event;
              LinearLayout rLayout;
              ArrayList<String> date;
@@ -43,7 +53,7 @@ public class TimetableView extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-        Locale.setDefault(Locale.US);
+        Locale.setDefault(Locale.ENGLISH);
 
         rLayout = (LinearLayout) findViewById(R.id.text);
         month = (GregorianCalendar) GregorianCalendar.getInstance();
@@ -53,53 +63,60 @@ public class TimetableView extends Activity {
 
         adapter = new TimetableAdapter(this, month);
 
+
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(adapter);
 
-        handler = new Handler();
-        handler.post(calendarUpdater);
+        //handler = new Handler();
+        //handler.post(calendarUpdater);
+
 
         TextView title = (TextView) findViewById(R.id.title);
         title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
+
 
         RelativeLayout previous = (RelativeLayout) findViewById(R.id.previous);
 
         previous.setOnClickListener(new OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                setPreviousMonth();
-                refreshCalendar();
-            }
-        });
+                @Override
+                public void onClick(View v) {
+                    setPreviousMonth();
+                    refreshCalendar();
+                }
+            });
 
-        RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
-        next.setOnClickListener(new OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                setNextMonth();
-                refreshCalendar();
+            RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
+            next.setOnClickListener(new OnClickListener() {
 
-            }
-        });
+                @Override
+                public void onClick(View v) {
+                    setNextMonth();
+                    refreshCalendar();
+
+                }
+            });
+
 
         gridview.setOnItemClickListener(new OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                
                 // removing the previous view if added
                 if (((LinearLayout) rLayout).getChildCount() > 0) {
-                    ((LinearLayout) rLayout).removeAllViews();
+                        ((LinearLayout) rLayout).removeAllViews();
                 }
                 desc = new ArrayList<String>();
                 date = new ArrayList<String>();
+
                 //date.add("Event");
                 ((TimetableAdapter) parent.getAdapter()).setSelected(v);
                 String selectedGridDate = TimetableAdapter.dayString.get(position);
                 String[] separatedTime = selectedGridDate.split("-");
-                String gridvalueString = separatedTime[2].replaceFirst("^0*",
-                        "");// taking last part of date. ie; 2 from 2012-12-02.
+                    String gridvalueString = separatedTime[2].replaceFirst("^0*", "");
+                        // taking last part of date. ie; 2 from 2012-12-02.
                 int gridvalue = Integer.parseInt(gridvalueString);
+
                 // navigate to next or previous month on clicking offdays.
                 if ((gridvalue > 10) && (position < 8)) {
                     setPreviousMonth();
@@ -113,7 +130,7 @@ public class TimetableView extends Activity {
                 for (int i = 0; i < Timetable.startDates.size(); i++) {
                     if (Timetable.startDates.get(i).equals(selectedGridDate)) {
                         desc.add(Timetable.nameOfEvent.get(i));
-                    }
+                   }
                 }
 
                 if (desc.size() > 0) {
@@ -177,6 +194,7 @@ public class TimetableView extends Activity {
         title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
     }
 
+
     public Runnable calendarUpdater = new Runnable() {
 
         @Override
@@ -199,4 +217,30 @@ public class TimetableView extends Activity {
             adapter.notifyDataSetChanged();
         }
     };
+
+
+    public void addEvent (View view) {
+        Intent intent = new Intent(Intent.ACTION_INSERT);
+        intent.setType("vnd.android.cursor.item/event");
+
+        Calendar cal = Calendar.getInstance();
+        long startTime = cal.getTimeInMillis();
+        long endTime = cal.getTimeInMillis() + 60 + 60 + 1000;
+
+        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTime);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
+
+        intent.putExtra(CalendarContract.Events.TITLE, "Title");
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, "Description");
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Location");
+        intent.putExtra(CalendarContract.Events.RRULE, "FREQ=YEARLY");
+
+        intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PRIVATE);
+        intent.putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+
+        startActivity(intent);
+
+    }
+
 }
