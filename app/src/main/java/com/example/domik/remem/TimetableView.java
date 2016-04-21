@@ -1,19 +1,18 @@
 package com.example.domik.remem;
 
-import android.app.Activity;
-import android.content.Context;
+
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
 import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
@@ -22,9 +21,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-import com.example.domik.remem.Timetable;
-
-import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,7 +32,32 @@ import java.util.Locale;
 /**
  * Created by Domik on 15.4.2016.
  */
-public class TimetableView extends Activity {
+public class TimetableView extends ActionBarActivity {
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item)
+    {
+        switch (item.getItemId()) {
+            case R.id.profile:
+                startActivity(new Intent(TimetableView.this, Profile.class));
+                    //setContentView(R.layout.activity_profile);
+                return true;
+            case R.id.timetableAB:
+                startActivity(new Intent(TimetableView.this, TimetableView.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     public GregorianCalendar month, itemmonth;// calendar instances.
 
@@ -67,8 +88,8 @@ public class TimetableView extends Activity {
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(adapter);
 
-        //handler = new Handler();
-        //handler.post(calendarUpdater);
+        handler = new Handler();
+        handler.post(calendarUpdater);
 
 
         TextView title = (TextView) findViewById(R.id.title);
