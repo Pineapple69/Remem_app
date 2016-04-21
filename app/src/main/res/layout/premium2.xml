@@ -109,5 +109,16 @@
         android:layout_alignBottom="@+id/editText3"
         android:layout_alignParentEnd="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:textSize="30sp"
+        android:textColor="#0770f0"
+        android:background="#FFFFFF"
+        android:id="@+id/buttonSave"
+        android:layout_below="@+id/datePicker"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
 </ScrollView>
