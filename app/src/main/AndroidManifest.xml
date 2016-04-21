@@ -33,6 +33,8 @@
         </activity>
 
         <activity android:name=".Profile"></activity>
+        <activity android:name=".Premium1"></activity>
+        <activity android:name=".Premium2"></activity>
     </application>
 
 </manifest>
