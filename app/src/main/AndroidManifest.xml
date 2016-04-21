@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.domik.remem">
-    <uses-permission android:name="android.permission.READ_CALENDAR"/>
-    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
 
-
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
     <application
         android:allowBackup="true"
@@ -13,28 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Register_one"></activity>
         <activity android:name=".Register_two"></activity>
-
-        <activity android:name=".TimetableView"
-                  android:uiOptions="splitActionBarWhenNarrow">
+        <activity android:name=".Premium1"></activity>
+        <activity android:name=".Premium2"></activity>
+        <activity android:name=".TimetableView">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Profile"></activity>
-        <activity android:name=".Premium1"></activity>
-        <activity android:name=".Premium2"></activity>
+        <activity android:name=".Profile"> </activity>
     </application>
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>

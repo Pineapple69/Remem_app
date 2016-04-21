@@ -44,7 +44,7 @@ public class Register_two extends Activity {
             AlertDialog dialog = builder.create();
             dialog.show();
         } else
-            startActivity(new Intent(Register_two.this, TimetableView.class));
+            startActivity(new Intent(Register_two.this, Timetable.class));
     }
     }
 
