@@ -20,6 +20,7 @@
         </activity>
 
         <activity android:name=".Register_one"></activity>
+        <activity android:name=".ContactPerson"></activity>
         <activity android:name=".Register_two"></activity>
         <activity android:name=".Premium1"></activity>
         <activity android:name=".Premium2"></activity>

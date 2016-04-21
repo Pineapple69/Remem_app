@@ -47,7 +47,7 @@ public class Profile extends Activity{
         timetable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this, Timetable.class));
+                startActivity(new Intent(Profile.this, TimetableView.class));
             }
         });
         premium.setOnClickListener(new View.OnClickListener() {

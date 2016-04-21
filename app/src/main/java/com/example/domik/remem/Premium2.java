@@ -17,7 +17,7 @@ public class Premium2 extends Activity{
 
     TextView textView2,textView3, textView4, textView5;
     EditText editText,editText2,editText3;
-    Button buttonSave;
+    Button buttonSave, button;
     DatePicker datePicker;
 
     @Override
@@ -33,15 +33,18 @@ public class Premium2 extends Activity{
         editText3 = (EditText) findViewById(R.id.editText3);
         datePicker = (DatePicker) findViewById(R.id.datePicker);
         buttonSave = (Button) findViewById(R.id.buttonSave);
-
+        button = (Button) findViewById(R.id.button);
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(Premium2.this, Profile.class));
+                startActivity(new Intent(Premium2.this, ContactPerson.class));
+
             }
         });
+
+
     }
 
 
