@@ -50,12 +50,11 @@ public class Profile extends Activity{
                 startActivity(new Intent(Profile.this, Timetable.class));
             }
         });
-        premium.setOnClickListener(new View.OnClickListener()
-        {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(Profile.this, premium.class));
-                                    }
+        premium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile.this, Premium1.class));
+            }
         });
 
 
@@ -107,6 +106,5 @@ public class Profile extends Activity{
     }
 
 }
-
 
 
