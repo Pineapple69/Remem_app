@@ -21,9 +21,9 @@
 
         <activity android:name=".Register_one"></activity>
         <activity android:name=".Register_two"></activity>
-        <activity android:name=".premium"></activity>
-        <activity android:name=".premium1"></activity>
-        <activity android:name=".Timetable">
+        <activity android:name=".Premium1"></activity>
+        <activity android:name=".Premium2"></activity>
+        <activity android:name=".TimetableView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
