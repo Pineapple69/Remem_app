@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.domik.remem.MainActivity"
     android:background="#ffffff">
 
@@ -76,7 +78,7 @@
         android:background="#3385ff"
         android:layout_below="@+id/imageView5"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="10dp" />
 
     <Button
         android:layout_width="fill_parent"
@@ -88,29 +90,27 @@
         android:background="#52ac62"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp" />
 
     <ImageView
 
-        android:id="@+id/imgView"
-        android:layout_width="400dp"
+        android:id="@+id/imageView3"
+        android:layout_width="fill_parent"
         android:layout_height="200dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_weight="1"
-        android:layout_above="@+id/textView6" />
+        android:layout_alignParentTop="true" />
 
     <ImageButton
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:scaleType="fitXY"
-        android:id="@+id/buttonLoadPicture"
+        android:id="@+id/imageButton"
         android:src="@drawable/plus1"
         android:focusableInTouchMode="false"
         android:contextClickable="false"
         android:background="#00ffffff"
-        android:onClick="loadImagefromGallery"
-        android:layout_alignBottom="@+id/imgView"
+        android:layout_alignBottom="@+id/imageView3"
         android:layout_toEndOf="@+id/textView8" />
 
 
