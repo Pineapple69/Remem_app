@@ -1,6 +1,7 @@
 package com.example.domik.remem;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -13,12 +14,16 @@ import android.app.Activity;
 
 public class MainActivity extends Activity {
 
+    private Client mClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signin);
         EditText email,password;
         Button login,signIn;
+
+
 
         email = (EditText)findViewById(R.id.email);
         password = (EditText)findViewById(R.id.Password);
@@ -36,11 +41,22 @@ public class MainActivity extends Activity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*make connection with server*/
+                new connectTask().execute("");
                 startActivity(new Intent(MainActivity.this,Register_one.class));
             }
         });
     }
 
+    public class connectTask extends AsyncTask<String,String,Client> {
 
+        @Override
+        protected Client doInBackground(String... message) {
+            mClient = new Client();
+            mClient.run();
+
+            return null;
+        }
+    }
 
 }

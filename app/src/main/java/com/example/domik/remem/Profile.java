@@ -54,7 +54,7 @@ public class Profile extends Activity{
         {
         @Override
         public void onClick(View v) {
-            startActivity(new Intent(Profile.this, premium.class));
+            startActivity(new Intent(Profile.this, Premium1.class));
                                     }
         });
 
