@@ -129,7 +129,7 @@ public class TimetableAdapter extends BaseAdapter {
             monthStr = "0" + monthStr;
         }
 
-         //how icon if date is not empty and it exists in the items array
+         //Show icon if date is not empty and it exists in the items array
          ImageView iw = (ImageView) v.findViewById(R.id.date_icon);
          if (date.length() > 0 && items != null && items.contains(date)) {
             iw.setVisibility(View.VISIBLE);

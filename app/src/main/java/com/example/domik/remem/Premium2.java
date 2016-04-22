@@ -1,6 +1,7 @@
 package com.example.domik.remem;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,24 @@ public class Premium2 extends Activity{
     Button buttonSave, button;
     DatePicker datePicker;
 
+    public void  onStart()
+    {
+        super.onStart();
+        EditText txtDate  =(EditText)findViewById(R.id.txtDate);
+        txtDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus)
+            {
+                if (hasFocus){
+                    DateDialog dialog = new DateDialog(v);
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    dialog.show(ft,"DatePicker");
+                }
+            }
+        });
+
+    }
+
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +50,7 @@ public class Premium2 extends Activity{
         editText = (EditText) findViewById(R.id.editText);
         editText2 = (EditText) findViewById(R.id.editText2);
         editText3 = (EditText) findViewById(R.id.editText3);
-        datePicker = (DatePicker) findViewById(R.id.datePicker);
         buttonSave = (Button) findViewById(R.id.buttonSave);
-        button = (Button) findViewById(R.id.button);
-
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

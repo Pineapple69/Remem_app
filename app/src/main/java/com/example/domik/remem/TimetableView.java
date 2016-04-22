@@ -33,6 +33,7 @@ import java.util.Locale;
  * Created by Domik on 15.4.2016.
  */
 public class TimetableView extends ActionBarActivity {
+    TextView showEvents;
 
 
 
@@ -93,6 +94,8 @@ public class TimetableView extends ActionBarActivity {
 
 
         TextView title = (TextView) findViewById(R.id.title);
+        showEvents = (TextView) findViewById(R.id.showEvents);
+
         title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
 
 
@@ -226,8 +229,9 @@ public class TimetableView extends ActionBarActivity {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
             String itemvalue;
             event = Timetable.readCalendarEvent(TimetableView.this);
-            Log.d("=====Event====", event.toString());
-            Log.d("=====Date ARRAY====", Timetable.startDates.toString());
+            showEvents.setText("=====Event===="+event.toString()+"\n"+"=====Date ARRAY===="+Timetable.startDates.toString()+"\n");
+            //Log.d("=====Event====", event.toString());
+            //Log.d("=====Date ARRAY====", Timetable.startDates.toString());
 
             for (int i = 0; i < Timetable.startDates.size(); i++) {
                 itemvalue = df.format(itemmonth.getTime());
