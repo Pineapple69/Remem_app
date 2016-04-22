@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.Toolbar 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="60dp"
     android:id="@+id/toolbar"
     android:minHeight="?attr/actionBarSize"
     android:background="@color/Blue"
@@ -14,4 +16,4 @@
     android:gravity="bottom"
     android:titleTextColor="#ffffff">
 
-</Toolbar>
+</android.support.v7.widget.Toolbar>

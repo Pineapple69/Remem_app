@@ -4,13 +4,9 @@ package com.example.domik.remem;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Icon;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.LinearLayout;
@@ -215,9 +211,9 @@ public class TimetableView extends Activity {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
             String itemvalue;
             event = Timetable.readCalendarEvent(TimetableView.this);
-            showEvents.setText("=====Event===="+event.toString()+"\n"+"=====Date ARRAY===="+Timetable.startDates.toString()+"\n");
-            //Log.d("=====Event====", event.toString());
-            //Log.d("=====Date ARRAY====", Timetable.startDates.toString());
+           // showEvents.setText("=====Event===="+event.toString()+"\n"+"=====Date ARRAY===="+Timetable.startDates.toString()+"\n");
+            Log.d("=====Event====", event.toString());
+            Log.d("=====Date ARRAY====", Timetable.startDates.toString());
 
             for (int i = 0; i < Timetable.startDates.size(); i++) {
                 itemvalue = df.format(itemmonth.getTime());
