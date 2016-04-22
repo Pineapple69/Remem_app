@@ -6,6 +6,12 @@
     android:id="@+id/toolbar"
     android:minHeight="?attr/actionBarSize"
     android:background="@color/Blue"
-    android:layout_alignParentBottom="true">
+    android:layout_alignParentBottom="true"
+    android:clickable="true"
+    android:contextClickable="true"
+    android:focusable="false"
+    android:foregroundGravity="bottom"
+    android:gravity="bottom"
+    android:titleTextColor="#ffffff">
 
 </Toolbar>

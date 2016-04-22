@@ -9,8 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.domik.remem.MainActivity"
-    android:background="#FFFFFF"
-    android:fillViewport="false">
+    android:background="#FFFFFF">
 
 <RelativeLayout
     android:layout_width="wrap_content"
@@ -33,14 +32,14 @@
     android:id="@+id/radioGroup"
     android:orientation="vertical"
     android:layout_below="@+id/textView2"
-    android:layout_alignParentStart="true"
-    android:layout_marginTop="20dp">
+    android:layout_alignParentStart="true">
 
     <RadioButton
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:buttonTint="#0770f0"
         android:layout_height="wrap_content"
         android:text="Man"
+        android:layout_marginTop="20dp"
         android:textSize="25sp"
         android:id="@+id/radioButton1"
         android:layout_below="@+id/textView2"
@@ -50,11 +49,11 @@
         android:textColorHighlight="#0770f0"
         android:textColorHint="#0770f0"
         android:textColorLink="#0770f0"
-        android:onClick="eventClick"
-        android:layout_weight="1" />
+        android:layout_weight="1.10"
+        android:onClick="eventClick" />
 
     <RadioButton
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:buttonTint="#f94b4b"
         android:text="Woman"
@@ -64,8 +63,8 @@
         android:layout_toEndOf="@+id/radioButton"
         android:checked="false"
         android:textColor="#f94b4b"
-        android:onClick="eventClick"
-        android:layout_weight="1" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="eventClick" />
 
 </RadioGroup>
 
@@ -98,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Surname"
+        android:text="Status"
         android:textSize="40sp"
         android:id="@+id/textView4"
         android:layout_below="@+id/editText"

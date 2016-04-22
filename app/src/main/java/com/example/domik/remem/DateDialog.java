@@ -1,5 +1,6 @@
 package com.example.domik.remem;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -14,9 +15,11 @@ import java.util.Calendar;
  * Created by sofastarikova on 22.04.16.
  */
 
+@SuppressLint("ValidFragment")
 public class DateDialog extends DialogFragment implements DatePickerDialog.OnDateSetListener
 {
 EditText txtDate;
+    @SuppressLint("ValidFragment")
     public DateDialog(View view)
     {
         txtDate = (EditText)view;

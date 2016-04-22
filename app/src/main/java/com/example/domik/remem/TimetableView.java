@@ -36,10 +36,9 @@ import static android.provider.CalendarContract.*;
 /**
  * Created by Domik on 15.4.2016.
  */
-public class TimetableView extends AppCompatActivity {
+public class TimetableView extends Activity {
     TextView showEvents;
     Toolbar toolbar;
-
 
 
 
@@ -59,34 +58,6 @@ public class TimetableView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         Locale.setDefault(Locale.ENGLISH);
-
-
-        //Toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Menu");
-
-        toolbar.setOnMenuItemClickListener(
-                new Toolbar.OnMenuItemClickListener(){
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item){
-
-                        switch (item. getItemId()){
-                            case R.id.timetableAB:
-                                startActivity(new Intent(TimetableView.this, TimetableView.class));
-                                break;
-                            case R.id.managePills:
-                                startActivity(new Intent(TimetableView.this, Profile.class));
-                                break;
-                            case R.id.profile:
-                                startActivity(new Intent(TimetableView.this, Profile.class));
-                                break;
-                        }
-                        return true;
-                    }
-                });
-        toolbar.inflateMenu(R.menu.main_menu);
-
-
 
 
 
@@ -191,6 +162,8 @@ public class TimetableView extends AppCompatActivity {
 
         });
     }
+
+
 
     protected void setNextMonth() {
         if (month.get(GregorianCalendar.MONTH) == month
