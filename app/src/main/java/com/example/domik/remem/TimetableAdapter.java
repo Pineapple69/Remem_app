@@ -98,15 +98,15 @@ public class TimetableAdapter extends BaseAdapter {
         // checking whether the day is in current month or not.
         if ((Integer.parseInt(gridvalue) > 1) && (position < firstDay)) {
             // setting offdays to white color.
-            dayView.setTextColor(Color.WHITE);
+            dayView.setTextColor(Color.GRAY);
             dayView.setClickable(false);
             dayView.setFocusable(false);
         } else if ((Integer.parseInt(gridvalue) < 7) && (position > 28)) {
-            dayView.setTextColor(Color.WHITE);
+            dayView.setTextColor(Color.GRAY);
             dayView.setClickable(false);
             dayView.setFocusable(false);
         } else {
-            // setting curent month's days in blue color.
+            // setting curent month's days in black color.
             dayView.setTextColor(Color.BLACK);
         }
 
@@ -114,7 +114,7 @@ public class TimetableAdapter extends BaseAdapter {
             setSelected(v);
             previousView = v;
         } else {
-            v.setBackgroundResource(R.color.Grey);
+            v.setBackgroundResource(R.color.White);
         }
         dayView.setText(gridvalue);
 

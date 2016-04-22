@@ -1,12 +1,13 @@
 package com.example.domik.remem;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
-import android.provider.CalendarContract;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,37 +30,18 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import static android.provider.CalendarContract.*;
+
 
 /**
  * Created by Domik on 15.4.2016.
  */
-public class TimetableView extends ActionBarActivity {
+public class TimetableView extends AppCompatActivity {
     TextView showEvents;
+    Toolbar toolbar;
 
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected (MenuItem item)
-    {
-        switch (item.getItemId()) {
-            case R.id.profile:
-                startActivity(new Intent(TimetableView.this, Profile.class));
-                    //setContentView(R.layout.activity_profile);
-                return true;
-            case R.id.timetableAB:
-                startActivity(new Intent(TimetableView.this, TimetableView.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
     public GregorianCalendar month, itemmonth;// calendar instances.
 
@@ -76,6 +59,36 @@ public class TimetableView extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         Locale.setDefault(Locale.ENGLISH);
+
+
+        //Toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Menu");
+
+        toolbar.setOnMenuItemClickListener(
+                new Toolbar.OnMenuItemClickListener(){
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item){
+
+                        switch (item. getItemId()){
+                            case R.id.timetableAB:
+                                startActivity(new Intent(TimetableView.this, TimetableView.class));
+                                break;
+                            case R.id.managePills:
+                                startActivity(new Intent(TimetableView.this, Profile.class));
+                                break;
+                            case R.id.profile:
+                                startActivity(new Intent(TimetableView.this, Profile.class));
+                                break;
+                        }
+                        return true;
+                    }
+                });
+        toolbar.inflateMenu(R.menu.main_menu);
+
+
+
+
 
         rLayout = (LinearLayout) findViewById(R.id.text);
         month = (GregorianCalendar) GregorianCalendar.getInstance();
@@ -125,7 +138,7 @@ public class TimetableView extends ActionBarActivity {
 
         gridview.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                
+
                 // removing the previous view if added
                 if (((LinearLayout) rLayout).getChildCount() > 0) {
                         ((LinearLayout) rLayout).removeAllViews();
@@ -226,7 +239,7 @@ public class TimetableView extends ActionBarActivity {
             items.clear();
 
             // Print dates of the current week
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
             String itemvalue;
             event = Timetable.readCalendarEvent(TimetableView.this);
             showEvents.setText("=====Event===="+event.toString()+"\n"+"=====Date ARRAY===="+Timetable.startDates.toString()+"\n");
@@ -244,7 +257,7 @@ public class TimetableView extends ActionBarActivity {
     };
 
 
-    public void addEvent (View view) {
+    public String addEvent (View view) {
         Intent intent = new Intent(Intent.ACTION_INSERT);
         intent.setType("vnd.android.cursor.item/event");
 
@@ -252,19 +265,20 @@ public class TimetableView extends ActionBarActivity {
         long startTime = cal.getTimeInMillis();
         long endTime = cal.getTimeInMillis() + 60 + 60 + 1000;
 
-        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTime);
-        intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime);
-        intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
+        intent.putExtra(EXTRA_EVENT_BEGIN_TIME, startTime);
+        intent.putExtra(EXTRA_EVENT_END_TIME, endTime);
+        intent.putExtra(EXTRA_EVENT_ALL_DAY, true);
 
-        intent.putExtra(CalendarContract.Events.TITLE, "Title");
-        intent.putExtra(CalendarContract.Events.DESCRIPTION, "Description");
-        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Location");
-        intent.putExtra(CalendarContract.Events.RRULE, "FREQ=YEARLY");
+        intent.putExtra(Events.TITLE, "Title");
+        intent.putExtra(Events.DESCRIPTION, "Description");
+        intent.putExtra(Events.EVENT_LOCATION, "Location");
+        intent.putExtra(Events.RRULE, "FREQ=YEARLY");
 
-        intent.putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PRIVATE);
-        intent.putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+        intent.putExtra(Events.ACCESS_LEVEL, Events.ACCESS_PRIVATE);
+        intent.putExtra(Events.AVAILABILITY, Events.AVAILABILITY_BUSY);
 
         startActivity(intent);
+        return Events.TITLE;
 
     }
 
