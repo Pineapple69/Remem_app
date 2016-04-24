@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:background="@color/Blue"
+    android:background="@color/colorPrimary"
     android:focusable="false"
     android:foregroundGravity="bottom"
     android:gravity="bottom"

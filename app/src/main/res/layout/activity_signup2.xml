@@ -147,7 +147,7 @@
         android:layout_height="wrap_content"
         android:text="Next"
         android:textSize="30sp"
-        android:textColor="#0770f0"
+        android:textColor="@android:color/holo_blue_dark"
         android:background="#FFFFFF"
         android:id="@+id/buttonNext"
         android:layout_below="@+id/editText3"

@@ -16,8 +16,7 @@
         android:icon="@drawable/ic_plus"
         android:orderInCategory="200"
         android:title="Pills"
-        app:showAsAction="always"
-        android:onClick="addEvent"></item>
+        app:showAsAction="always"></item>
 
     <item
         android:id="@+id/profile"
