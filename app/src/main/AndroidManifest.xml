@@ -24,7 +24,7 @@
         <activity android:name=".Register_two"></activity>
         <activity android:name=".Premium1"></activity>
         <activity android:name=".Premium2"></activity>
-        <activity android:name=".TimetableView">
+        <activity android:name=".Timetable_toolbarMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

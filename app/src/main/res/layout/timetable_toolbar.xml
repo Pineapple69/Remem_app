@@ -7,12 +7,11 @@
     android:layout_alignParentBottom="true"
     android:background="@color/colorPrimary"
     android:focusable="false"
-    android:foregroundGravity="bottom"
     android:gravity="bottom"
     android:minHeight="?attr/actionBarSize"
     android:orientation="vertical"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-    app:popupTheme="@style/Theme.AppCompat.Light.NoActionBar"
-    android:titleTextColor="#ffffff">
+    android:titleTextColor="#ffffff"
+    android:fitsSystemWindows="true">
 
 </android.support.v7.widget.Toolbar>

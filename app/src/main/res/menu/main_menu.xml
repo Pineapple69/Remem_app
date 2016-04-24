@@ -17,12 +17,12 @@
         android:orderInCategory="200"
         android:title="Pills"
         app:showAsAction="always"></item>
-
     <item
         android:id="@+id/profile"
         android:icon="@drawable/account"
         android:orderInCategory="300"
         android:title="Profile"
         app:showAsAction="always"></item>
+
 
 </menu>

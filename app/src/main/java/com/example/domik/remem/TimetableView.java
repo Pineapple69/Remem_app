@@ -8,9 +8,6 @@ import android.os.Bundle;
 
 import android.support.v7.widget.Toolbar;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Layout;
-import android.text.SpannableString;
-import android.text.style.AlignmentSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -62,8 +59,6 @@ public class TimetableView extends ActionBarActivity {
         setContentView(R.layout.activity_calendar);
         Locale.setDefault(Locale.ENGLISH);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
 
         rLayout = (LinearLayout) findViewById(R.id.text);
@@ -259,32 +254,5 @@ public class TimetableView extends ActionBarActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    //toolbar
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.timetableAB:
-                startActivity(new Intent(TimetableView.this, TimetableView.class));
-                return true;
-
-            case R.id.managePills:
-                startActivity(new Intent(TimetableView.this, TimetableView.class));
-                return true;
-
-            case R.id.profile:
-                startActivity(new Intent(TimetableView.this, Profile.class));
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-    }
 
 }
