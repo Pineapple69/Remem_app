@@ -12,15 +12,15 @@ import android.widget.TextView;
 /**
  * Created by Domik on 12.4.2016.
  */
-public class Premium1 extends Activity{
+public class Premium1 extends Activity {
 
-    TextView textView2,textView3, textView4, textView5;
+    TextView textView2, textView3, textView4, textView5;
     RadioButton radioButton1, radioButton2;
-    EditText editText,editText2,editText3;
+    EditText editText, editText2, editText3;
     Button buttonNext;
 
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.premium1);
         textView2 = (TextView) findViewById(R.id.textView2);

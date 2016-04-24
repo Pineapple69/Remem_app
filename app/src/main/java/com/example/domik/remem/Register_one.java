@@ -10,18 +10,18 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class Register_one extends Activity{
+public class Register_one extends Activity {
     Button Next;
-    EditText Email,Password,confirmPassword;
+    EditText Email, Password, confirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        Next = (Button)findViewById(R.id.next);
-        Email = (EditText)findViewById(R.id.email);
-        Password = (EditText)findViewById(R.id.Password1);
-        confirmPassword = (EditText)findViewById(R.id.Password2);
+        Next = (Button) findViewById(R.id.next);
+        Email = (EditText) findViewById(R.id.email);
+        Password = (EditText) findViewById(R.id.Password1);
+        confirmPassword = (EditText) findViewById(R.id.Password2);
 
         Next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,7 +29,7 @@ public class Register_one extends Activity{
                 String email = Email.getText().toString();
                 String first_password = Password.getText().toString();
                 String second_password = confirmPassword.getText().toString();
-                if(email.isEmpty() || first_password.isEmpty() || second_password.isEmpty()){
+                if (email.isEmpty() || first_password.isEmpty() || second_password.isEmpty()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Register_one.this);
                     builder.setMessage("Fill all blank!");
                     builder.setTitle("WARNING!");
@@ -41,8 +41,7 @@ public class Register_one extends Activity{
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
-                }
-                else if(!(first_password.equals(second_password))){
+                } else if (!(first_password.equals(second_password))) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Register_one.this);
                     builder.setMessage("Not same password!!");
                     builder.setTitle("WARNING!");
@@ -54,8 +53,7 @@ public class Register_one extends Activity{
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
-                }
-                else
+                } else
                     startActivity(new Intent(Register_one.this, Register_two.class));
             }
         });

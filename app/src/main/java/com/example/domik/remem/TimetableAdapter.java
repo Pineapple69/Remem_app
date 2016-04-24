@@ -87,7 +87,7 @@ public class TimetableAdapter extends BaseAdapter {
         if (convertView == null) { // if it's not recycled, initialize some attributes
             LayoutInflater vi = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = vi.inflate(R.layout.timetable_item,null);
+            v = vi.inflate(R.layout.timetable_item, null);
 
         }
         dayView = (TextView) v.findViewById(R.id.date);
@@ -129,11 +129,11 @@ public class TimetableAdapter extends BaseAdapter {
             monthStr = "0" + monthStr;
         }
 
-         //Show icon if date is not empty and it exists in the items array
-         ImageView iw = (ImageView) v.findViewById(R.id.date_icon);
-         if (date.length() > 0 && items != null && items.contains(date)) {
+        //Show icon if date is not empty and it exists in the items array
+        ImageView iw = (ImageView) v.findViewById(R.id.date_icon);
+        if (date.length() > 0 && items != null && items.contains(date)) {
             iw.setVisibility(View.VISIBLE);
-         } else {
+        } else {
             iw.setVisibility(View.INVISIBLE);
         }
 

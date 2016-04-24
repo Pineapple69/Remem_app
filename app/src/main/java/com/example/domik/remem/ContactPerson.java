@@ -23,7 +23,7 @@ public class ContactPerson extends Activity {
         textView9 = (TextView) findViewById(R.id.textView9);
         textView7 = (TextView) findViewById(R.id.textView7);
         textView8 = (TextView) findViewById(R.id.textView8);
-        profile =(Button)findViewById(R.id.profile);
+        profile = (Button) findViewById(R.id.profile);
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,5 +32,5 @@ public class ContactPerson extends Activity {
             }
         });
     }
-    }
+}
 

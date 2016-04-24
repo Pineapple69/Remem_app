@@ -5,8 +5,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+
+import android.support.v7.widget.Toolbar;
+import android.support.v7.app.ActionBarActivity;
+import android.text.Layout;
+import android.text.SpannableString;
+import android.text.style.AlignmentSpan;
 import android.util.Log;
-import android.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.LinearLayout;
@@ -32,29 +39,31 @@ import static android.provider.CalendarContract.*;
 /**
  * Created by Domik on 15.4.2016.
  */
-public class TimetableView extends Activity {
+public class TimetableView extends ActionBarActivity {
     TextView showEvents;
     Toolbar toolbar;
-
 
 
     public GregorianCalendar month, itemmonth;// calendar instances.
 
     public TimetableAdapter adapter;// adapter instance
     public Handler handler;// for grabbing some event values for showing the dot marker.
-    public   ArrayList<String> items; // container to store calendar items which needs showing the event marker
+    public ArrayList<String> items; // container to store calendar items which needs showing the event marker
 
 
-             ArrayList<String> event;
-             LinearLayout rLayout;
-             ArrayList<String> date;
-             ArrayList<String> desc;
+    ArrayList<String> event;
+    LinearLayout rLayout;
+    ArrayList<String> date;
+    ArrayList<String> desc;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         Locale.setDefault(Locale.ENGLISH);
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
         rLayout = (LinearLayout) findViewById(R.id.text);
@@ -83,24 +92,24 @@ public class TimetableView extends Activity {
 
         previous.setOnClickListener(new OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    setPreviousMonth();
-                    refreshCalendar();
-                }
-            });
+            @Override
+            public void onClick(View v) {
+                setPreviousMonth();
+                refreshCalendar();
+            }
+        });
 
 
-            RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
-            next.setOnClickListener(new OnClickListener() {
+        RelativeLayout next = (RelativeLayout) findViewById(R.id.next);
+        next.setOnClickListener(new OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    setNextMonth();
-                    refreshCalendar();
+            @Override
+            public void onClick(View v) {
+                setNextMonth();
+                refreshCalendar();
 
-                }
-            });
+            }
+        });
 
 
         gridview.setOnItemClickListener(new OnItemClickListener() {
@@ -108,7 +117,7 @@ public class TimetableView extends Activity {
 
                 // removing the previous view if added
                 if (((LinearLayout) rLayout).getChildCount() > 0) {
-                        ((LinearLayout) rLayout).removeAllViews();
+                    ((LinearLayout) rLayout).removeAllViews();
                 }
                 desc = new ArrayList<String>();
                 date = new ArrayList<String>();
@@ -117,8 +126,8 @@ public class TimetableView extends Activity {
                 ((TimetableAdapter) parent.getAdapter()).setSelected(v);
                 String selectedGridDate = TimetableAdapter.dayString.get(position);
                 String[] separatedTime = selectedGridDate.split("-");
-                    String gridvalueString = separatedTime[2].replaceFirst("^0*", "");
-                        // taking last part of date. ie; 2 from 2012-12-02.
+                String gridvalueString = separatedTime[2].replaceFirst("^0*", "");
+                // taking last part of date. ie; 2 from 2012-12-02.
                 int gridvalue = Integer.parseInt(gridvalueString);
 
                 // navigate to next or previous month on clicking offdays.
@@ -134,7 +143,7 @@ public class TimetableView extends Activity {
                 for (int i = 0; i < Timetable.startDates.size(); i++) {
                     if (Timetable.startDates.get(i).equals(selectedGridDate)) {
                         desc.add(Timetable.nameOfEvent.get(i));
-                   }
+                    }
                 }
 
                 if (desc.size() > 0) {
@@ -158,7 +167,6 @@ public class TimetableView extends Activity {
 
         });
     }
-
 
 
     protected void setNextMonth() {
@@ -211,7 +219,7 @@ public class TimetableView extends Activity {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
             String itemvalue;
             event = Timetable.readCalendarEvent(TimetableView.this);
-           // showEvents.setText("=====Event===="+event.toString()+"\n"+"=====Date ARRAY===="+Timetable.startDates.toString()+"\n");
+            // showEvents.setText("=====Event===="+event.toString()+"\n"+"=====Date ARRAY===="+Timetable.startDates.toString()+"\n");
             Log.d("=====Event====", event.toString());
             Log.d("=====Date ARRAY====", Timetable.startDates.toString());
 
@@ -226,7 +234,7 @@ public class TimetableView extends Activity {
     };
 
 
-    public String addEvent (View view) {
+    public String addEvent(View view) {
         Intent intent = new Intent(Intent.ACTION_INSERT);
         intent.setType("vnd.android.cursor.item/event");
 
@@ -248,6 +256,34 @@ public class TimetableView extends Activity {
 
         startActivity(intent);
         return Events.TITLE;
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    //toolbar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.timetableAB:
+                startActivity(new Intent(TimetableView.this, TimetableView.class));
+                return true;
+
+            case R.id.managePills:
+                startActivity(new Intent(TimetableView.this, TimetableView.class));
+                return true;
+
+            case R.id.profile:
+                startActivity(new Intent(TimetableView.this, Profile.class));
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
 
     }
 

@@ -26,32 +26,32 @@ public class Register_two extends Activity {
 
         buttonNext.setOnClickListener(new View.OnClickListener()
 
-    {
-        @Override
-        public void onClick (View v){
-        String Name = editText.getText().toString();
-        String Surname = editText2.getText().toString();
-        String Number = editText3.getText().toString();
-        if (Name.isEmpty() || Surname.isEmpty() || Number.isEmpty()) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(Register_two.this);
-            builder.setMessage("Fill all blank!");
-            builder.setTitle("WARNING");
-            builder.setIcon(R.drawable.logo1);
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                }
-            });
-            AlertDialog dialog = builder.create();
-            dialog.show();
-        } else
-            startActivity(new Intent(Register_two.this, TimetableView.class));
-    }
+                                      {
+                                          @Override
+                                          public void onClick(View v) {
+                                              String Name = editText.getText().toString();
+                                              String Surname = editText2.getText().toString();
+                                              String Number = editText3.getText().toString();
+                                              if (Name.isEmpty() || Surname.isEmpty() || Number.isEmpty()) {
+                                                  AlertDialog.Builder builder = new AlertDialog.Builder(Register_two.this);
+                                                  builder.setMessage("Fill all blank!");
+                                                  builder.setTitle("WARNING");
+                                                  builder.setIcon(R.drawable.logo1);
+                                                  builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                      public void onClick(DialogInterface dialog, int id) {
+                                                      }
+                                                  });
+                                                  AlertDialog dialog = builder.create();
+                                                  dialog.show();
+                                              } else
+                                                  startActivity(new Intent(Register_two.this, TimetableView.class));
+                                          }
+                                      }
+
+        );
     }
 
-    );
-}
-
-// changing color
+    // changing color
     public void eventClick(View view) {
         switch (view.getId()) {
             case R.id.radioButton1:

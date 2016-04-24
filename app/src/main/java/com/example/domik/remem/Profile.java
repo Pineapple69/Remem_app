@@ -16,7 +16,7 @@ import android.provider.MediaStore;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class Profile extends Activity{
+public class Profile extends Activity {
 
 
     ImageView imgView, imageView4, imageView5;
@@ -33,15 +33,15 @@ public class Profile extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        imgView =(ImageView)findViewById(R.id.imgView);
-        imageView4 =(ImageView)findViewById(R.id.imageView4);
-        imageView5 =(ImageView)findViewById(R.id.imageView5);
-        textView6 =(TextView)findViewById(R.id.textView6);
-        textView7 =(TextView)findViewById(R.id.textView7);
-        textView8 =(TextView)findViewById(R.id.textView8);
-        buttonLoadPicture=(ImageButton)findViewById(R.id.buttonLoadPicture);
-        premium =(Button)findViewById(R.id.premium);
-        timetable =(Button)findViewById(R.id.timetable);
+        imgView = (ImageView) findViewById(R.id.imgView);
+        imageView4 = (ImageView) findViewById(R.id.imageView4);
+        imageView5 = (ImageView) findViewById(R.id.imageView5);
+        textView6 = (TextView) findViewById(R.id.textView6);
+        textView7 = (TextView) findViewById(R.id.textView7);
+        textView8 = (TextView) findViewById(R.id.textView8);
+        buttonLoadPicture = (ImageButton) findViewById(R.id.buttonLoadPicture);
+        premium = (Button) findViewById(R.id.premium);
+        timetable = (Button) findViewById(R.id.timetable);
 
 
         timetable.setOnClickListener(new View.OnClickListener() {
@@ -58,9 +58,8 @@ public class Profile extends Activity{
         });
 
 
-
-
     }
+
     public void loadImagefromGallery(View view) {
         // Create intent to Open Image applications like Gallery, Google Photos
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
@@ -68,6 +67,7 @@ public class Profile extends Activity{
         // Start the Intent
         startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -78,7 +78,7 @@ public class Profile extends Activity{
                 // Get the Image from data
 
                 Uri selectedImage = data.getData();
-                String[] filePathColumn = { MediaStore.Images.Media.DATA };
+                String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
                 // Get the cursor
                 Cursor cursor = getContentResolver().query(selectedImage,

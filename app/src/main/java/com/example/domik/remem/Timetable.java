@@ -50,10 +50,10 @@ public class Timetable {
     public static ArrayList<String> endDates = new ArrayList<String>();
     public static ArrayList<String> descriptions = new ArrayList<String>();
 
-    public static ArrayList<String> readCalendarEvent (Context context) {
+    public static ArrayList<String> readCalendarEvent(Context context) {
         Cursor cursor = context.getContentResolver()
-          .query(Uri.parse("content://com.android.calendar/events"),
-                  new String[]{"calendar_id", "title", "description", "dtstart", "dtend", "eventLocation"}, null, null, null);
+                .query(Uri.parse("content://com.android.calendar/events"),
+                        new String[]{"calendar_id", "title", "description", "dtstart", "dtend", "eventLocation"}, null, null, null);
         cursor.moveToFirst();
         String CNames[] = new String[cursor.getCount()];
 
@@ -61,7 +61,7 @@ public class Timetable {
         startDates.clear();
         endDates.clear();
         descriptions.clear();
-        for (int i = 0; i< CNames.length; i++) {
+        for (int i = 0; i < CNames.length; i++) {
 
             nameOfEvent.add(cursor.getString(1));
             startDates.add(getDate(cursor.getLong(3)));
@@ -73,7 +73,7 @@ public class Timetable {
         return nameOfEvent;
     }
 
-    public static String getDate(long milliSeconds){
+    public static String getDate(long milliSeconds) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSeconds);

@@ -10,37 +10,35 @@ import android.widget.EditText;
 import android.app.Activity;
 
 
-
 public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signin);
-        EditText email,password;
-        Button login,signIn;
+        EditText email, password;
+        Button login, signIn;
 
-        email = (EditText)findViewById(R.id.email);
-        password = (EditText)findViewById(R.id.Password);
-        login = (Button)findViewById(R.id.login_button);
-        signIn = (Button)findViewById(R.id.sign_in_button);
+        email = (EditText) findViewById(R.id.email);
+        password = (EditText) findViewById(R.id.Password);
+        login = (Button) findViewById(R.id.login_button);
+        signIn = (Button) findViewById(R.id.sign_in_button);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            startActivity(new Intent(MainActivity.this, TimetableView.class));
+                startActivity(new Intent(MainActivity.this, TimetableView.class));
             }
         });
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Register_one.class));
+                startActivity(new Intent(MainActivity.this, Register_one.class));
             }
         });
     }
-
 
 
 }

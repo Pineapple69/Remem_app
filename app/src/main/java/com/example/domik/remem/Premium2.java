@@ -14,25 +14,23 @@ import android.widget.TextView;
 /**
  * Created by Domik on 12.4.2016.
  */
-public class Premium2 extends Activity{
+public class Premium2 extends Activity {
 
-    TextView textView2,textView3, textView4, textView5;
-    EditText editText,editText2,editText3;
+    TextView textView2, textView3, textView4, textView5;
+    EditText editText, editText2, editText3;
     Button buttonSave, button;
     DatePicker datePicker;
 
-    public void  onStart()
-    {
+    public void onStart() {
         super.onStart();
-        EditText txtDate  =(EditText)findViewById(R.id.txtDate);
+        EditText txtDate = (EditText) findViewById(R.id.editText4);
         txtDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus)
-            {
-                if (hasFocus){
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
                     DateDialog dialog = new DateDialog(v);
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    dialog.show(ft,"DatePicker");
+                    dialog.show(ft, "DatePicker");
                 }
             }
         });
@@ -40,7 +38,7 @@ public class Premium2 extends Activity{
     }
 
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.premium2);
         textView2 = (TextView) findViewById(R.id.textView2);
@@ -50,7 +48,7 @@ public class Premium2 extends Activity{
         editText = (EditText) findViewById(R.id.editText);
         editText2 = (EditText) findViewById(R.id.editText2);
         editText3 = (EditText) findViewById(R.id.editText3);
-        buttonSave = (Button) findViewById(R.id.buttonSave);
+        buttonSave = (Button) findViewById(R.id.button);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +60,6 @@ public class Premium2 extends Activity{
 
 
     }
-
 
 
 }
