@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.Android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/White"
     tools:context="com.techlovejump.materialdesign.MainActivity">
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/timetable_toolbar"
-        >
-
+        layout="@layout/timetable_toolbar">
     </include>
 
     <RelativeLayout
@@ -91,11 +90,9 @@
         android:id="@+id/addEventButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/text"
         android:layout_below="@+id/gridview"
         android:layout_gravity="right"
         android:layout_marginEnd="85dp"
-        android:background="#ffffff"
         android:backgroundTintMode="add"
         android:baselineAlignBottom="false"
         android:clickable="true"

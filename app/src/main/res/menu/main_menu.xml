@@ -10,14 +10,14 @@
         android:icon="@drawable/ic_event_white_48dp"
         android:orderInCategory="100"
         android:title="Timetable"
-        app:showAsAction="always"
-        android:align="center"></item>
+        app:showAsAction="always"></item>
     <item
         android:id="@+id/managePills"
         android:icon="@drawable/ic_plus"
         android:orderInCategory="200"
         android:title="Pills"
-        app:showAsAction="always"></item>
+        app:showAsAction="always"
+        android:onClick="addEvent"></item>
 
     <item
         android:id="@+id/profile"
