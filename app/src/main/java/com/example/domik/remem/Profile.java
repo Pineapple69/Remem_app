@@ -2,6 +2,9 @@ package com.example.domik.remem;
 
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +19,7 @@ import android.provider.MediaStore;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class Profile extends Activity {
+public class Profile extends ActionBarActivity {
 
 
     ImageView imgView, imageView4, imageView5;
