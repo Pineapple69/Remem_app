@@ -25,8 +25,8 @@ public class Premium2 extends ActionBarActivity {
 
     public void onStart() {
         super.onStart();
-        datePicker = (DatePicker) findViewById(R.id.datePicker);
-        datePicker.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        EditText txtDate = (EditText) findViewById(R.id.editText4);
+        txtDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
