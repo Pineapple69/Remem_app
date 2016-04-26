@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -14,7 +16,7 @@ import android.widget.TextView;
 /**
  * Created by Domik on 12.4.2016.
  */
-public class Premium2 extends Activity {
+public class Premium2 extends ActionBarActivity {
 
     TextView textView2, textView3, textView4, textView5;
     EditText editText, editText2, editText3;
@@ -23,8 +25,8 @@ public class Premium2 extends Activity {
 
     public void onStart() {
         super.onStart();
-        EditText txtDate = (EditText) findViewById(R.id.editText4);
-        txtDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        datePicker = (DatePicker) findViewById(R.id.datePicker);
+        datePicker.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
@@ -48,12 +50,12 @@ public class Premium2 extends Activity {
         editText = (EditText) findViewById(R.id.editText);
         editText2 = (EditText) findViewById(R.id.editText2);
         editText3 = (EditText) findViewById(R.id.editText3);
-        buttonSave = (Button) findViewById(R.id.button);
+        buttonSave = (Button) findViewById(R.id.buttonSave);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(Premium2.this, ContactPerson.class));
+                startActivity(new Intent(Premium2.this, Profile.class));
 
             }
         });

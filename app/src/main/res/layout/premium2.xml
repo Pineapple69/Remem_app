@@ -70,16 +70,14 @@
             android:background="#0770f0" />
 
         <Button
-            android:layout_width="106dp"
-            android:layout_height="47dp"
-            android:text="NEXT>"
-            android:id="@+id/button"
-            android:layout_gravity="center_horizontal|right"
-            android:gravity="right"
-            android:foregroundGravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:id="@+id/buttonSave"
             android:textSize="25dp"
             android:background="#ffffff"
-            android:textColor="#0770f0" />
+            android:textColor="#0770f0"
+            android:layout_gravity="right" />
 
     </LinearLayout>
 </ScrollView>

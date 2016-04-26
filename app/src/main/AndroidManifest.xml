@@ -8,29 +8,33 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label=""
+        android:label="Remem"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".Register_one"></activity>
         <activity android:name=".ContactPerson"></activity>
         <activity android:name=".Register_two"></activity>
         <activity android:name=".Premium1"></activity>
         <activity android:name=".Premium2"></activity>
+
         <activity android:name=".TimetableView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Profile"></activity>
+
+        <activity
+            android:name=".Profile"
+            android:label="Profile"
+            android:parentActivityName="com.example.domik.remem.TimetableView">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.domik.remem.TimetableView" />
+        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

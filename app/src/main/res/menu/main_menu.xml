@@ -6,6 +6,12 @@
 
 
     <item
+        android:id="@+id/addmedicine"
+        android:icon="@drawable/ic_plus"
+        android:orderInCategory="100"
+        android:title="Pills"
+        app:showAsAction="always"></item>
+    <item
         android:id="@+id/timetableAB"
         android:icon="@drawable/ic_event_white_48dp"
         android:orderInCategory="100"

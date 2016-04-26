@@ -59,8 +59,8 @@ public class TimetableView extends ActionBarActivity {
         setContentView(R.layout.activity_calendar);
 //        Locale.setDefault(Locale.ENGLISH);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //toolbar = (Toolbar) findViewById(R.id.toolbar);
+       // setSupportActionBar(toolbar);
 
 
         rLayout = (LinearLayout) findViewById(R.id.text);
@@ -231,7 +231,7 @@ public class TimetableView extends ActionBarActivity {
     };
 
 
-    public String addEvent(View view) {
+   /* public String addEvent(View view) {
         Intent intent = new Intent(Intent.ACTION_INSERT);
         intent.setType("vnd.android.cursor.item/event");
 
@@ -254,7 +254,7 @@ public class TimetableView extends ActionBarActivity {
         startActivity(intent);
         return Events.TITLE;
 
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -277,6 +277,9 @@ public class TimetableView extends ActionBarActivity {
             case R.id.profile:
                 startActivity(new Intent(TimetableView.this, Profile.class));
                 return true;
+
+            case R.id.addmedicine:
+                startActivity(new Intent(TimetableView.this,Premium2.class));
 
             default:
                 return super.onOptionsItemSelected(item);
