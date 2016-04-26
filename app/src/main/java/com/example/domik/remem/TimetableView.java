@@ -270,8 +270,8 @@ public class TimetableView extends ActionBarActivity {
                 startActivity(new Intent(TimetableView.this, TimetableView.class));
                 return true;
 
-            case R.id.managePills:
-                startActivity(new Intent(TimetableView.this, TimetableView.class));
+            case R.id.logout:
+                startActivity(new Intent(TimetableView.this, MainActivity.class));
                 return true;
 
             case R.id.profile:

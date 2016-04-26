@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.Android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.techlovejump.materialdesign.MainActivity">
+    tools:context="com.techlovejump.materialdesign.MainActivity"
+    android:background="#ffffff">
 
     <include
         android:id="@+id/toolbar"
@@ -72,17 +74,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/gridview"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#ffffff">
 
         <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
 
             <TextView
                 android:id="@+id/showEvents"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/gridview" />
+                android:layout_below="@+id/gridview"
+                android:background="#ffffff" />
         </ScrollView>
     </LinearLayout>
 

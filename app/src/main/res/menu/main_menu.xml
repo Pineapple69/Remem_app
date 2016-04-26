@@ -12,17 +12,16 @@
         android:title="Timetable"
         app:showAsAction="always"></item>
     <item
-        android:id="@+id/managePills"
-        android:icon="@drawable/ic_plus"
-        android:orderInCategory="200"
-        android:title="Pills"
-        app:showAsAction="always"></item>
-    <item
         android:id="@+id/profile"
         android:icon="@drawable/account"
-        android:orderInCategory="300"
+        android:orderInCategory="200"
         android:title="Profile"
         app:showAsAction="always"></item>
-
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_logout"
+        android:orderInCategory="300"
+        android:title="Logout"
+        app:showAsAction="always"></item>
 
 </menu>
