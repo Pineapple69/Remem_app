@@ -14,7 +14,7 @@
         android:layout_gravity="bottom">
 
         <ImageButton
-            android:layout_width="207dp"
+            android:layout_width="192dp"
             android:layout_height="70dp"
             android:text="Cancel"
             android:id="@+id/cancel_button"
@@ -24,7 +24,7 @@
             android:src="@drawable/abc_ic_clear_mtrl_alpha" />
 
         <Button
-            android:layout_width="207dp"
+            android:layout_width="192dp"
             android:layout_height="70dp"
             android:text="OK"
             android:id="@+id/ok_button"
